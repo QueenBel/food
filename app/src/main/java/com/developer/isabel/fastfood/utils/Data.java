@@ -11,4 +11,5 @@ public class Data {
     public static String HOST= "http://192.168.1.110:7070/api/v1.0";
     public static String REGISTER_RESTAURANT= HOST + "/restaurant";
     public static String UPLOAD_RESTAURANT= HOST + "/uploadrestaurant";
+    public static String GET_RESTAURANT= HOST + "/restaurant";
 }

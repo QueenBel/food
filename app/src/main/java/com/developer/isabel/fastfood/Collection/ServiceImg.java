@@ -13,7 +13,7 @@ import java.net.URL;
 public class ServiceImg extends AsyncTask<String, String, Bitmap> {
     private OnLoadImgService IMG;
     private ImageView imgC;
-    private int position;
+
     public void setLoadImage(ImageView container, OnLoadImgService img){
         IMG = img;
         imgC = container;

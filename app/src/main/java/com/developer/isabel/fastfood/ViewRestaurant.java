@@ -25,8 +25,8 @@ import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 
 public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    //private View ROOT;
-    private OnLoadImgService event;
+    private Context ROOT;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_view_restaurant);
 
         //
-       // root = this;
+       ROOT = this;
         Data.list_data= new ArrayList<Item>();
 
         loadServiceHouse();
@@ -46,7 +46,7 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
 
         AsyncHttpClient client = new AsyncHttpClient();
         //client.get("http://192.168.43.197:7070/", new JsonHttpResponseHandler(){
-           client.get("http://192.168.1.110:7070/api/v1.0/restaurant", new JsonHttpResponseHandler(){
+           client.get(Data.GET_RESTAURANT, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
@@ -71,7 +71,7 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                //Toast.makeText(this, "Fail", Toast.LENGTH_LONG).show();
+                Toast.makeText(ROOT, "Fail", Toast.LENGTH_LONG).show();
 
             }
 
@@ -79,15 +79,13 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
         });
     }
 
-    public void setOnloadCompleteData(OnLoadImgService event) {
-        this.event = event;
-    }
+
     private void loadComponents() {
         ListView list = (ListView)this.findViewById(R.id.list_main);
-        ListAdapter adapter = new ListAdapter(this, Data.list_data);
-        list.setAdapter(adapter);
-
         list.setOnItemClickListener(this);
+
+        ListAdapter adapter = new ListAdapter(ROOT, Data.list_data);
+        list.setAdapter(adapter);
     }
 
     @Override
