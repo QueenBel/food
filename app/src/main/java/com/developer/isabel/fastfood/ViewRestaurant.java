@@ -24,11 +24,8 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ViewRestaurant extends AppCompatActivity {
-    //private ListView list;
-
-   // private ListAdapter adapter;
-   // private Context root;
+public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    //private View ROOT;
     private OnLoadImgService event;
 
     @Override
@@ -90,22 +87,16 @@ public class ViewRestaurant extends AppCompatActivity {
         ListAdapter adapter = new ListAdapter(this, Data.list_data);
         list.setAdapter(adapter);
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String idRes=Data.list_data.get(position).getId();
-                //Intent dtailds=new Intent(root, DetaildRestaurant.class);
-                //dtailds.putExtra("id", idRes);
-                //root.startActivity(dtailds);
+        list.setOnItemClickListener(this);
+    }
 
-                Intent detailds= new Intent(ViewRestaurant.this, DetaildRestaurant.class);
-                detailds.putExtra("id", idRes);
-                ViewRestaurant.this.startActivity(detailds);
-                //;
-                //root.startActivity(dtailds);
-            }
-        });
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String idRes=Data.list_data.get(position).getId();
 
+        Intent detailds= new Intent(this, DetaildRestaurant.class);
+        detailds.putExtra("id", idRes);
+        this.startActivity(detailds);
     }
 }
 //08:40:00 apirestMovie
