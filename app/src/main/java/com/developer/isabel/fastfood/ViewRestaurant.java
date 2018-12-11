@@ -2,6 +2,7 @@ package com.developer.isabel.fastfood;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,20 +28,19 @@ import cz.msebera.android.httpclient.Header;
 public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private Context ROOT;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ROOT = this;
+        Data.list_data= new ArrayList<Item>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_restaurant);
 
-        //
-       ROOT = this;
-        Data.list_data= new ArrayList<Item>();
 
-        loadServiceHouse();
+
+        loadServiceRest();
 
     }
-    private void loadServiceHouse() {
+    private void loadServiceRest() {
 
 
 
@@ -69,12 +69,6 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
                 }
 
             }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Toast.makeText(ROOT, "Fail", Toast.LENGTH_LONG).show();
-
-            }
-
 
         });
     }
@@ -84,7 +78,7 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
         ListView list = (ListView)this.findViewById(R.id.list_main);
         list.setOnItemClickListener(this);
 
-        ListAdapter adapter = new ListAdapter(ROOT, Data.list_data);
+        ListAdapter adapter = new ListAdapter(this, Data.list_data);
         list.setAdapter(adapter);
     }
 

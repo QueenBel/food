@@ -1,5 +1,9 @@
 package com.developer.isabel.fastfood.Collection;
 
+import android.graphics.Bitmap;
+
+import java.util.ArrayList;
+
 public class Item {
     private String title;
     private String street;
@@ -44,7 +48,7 @@ public class Item {
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public String getUrl() {

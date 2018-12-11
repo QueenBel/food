@@ -26,7 +26,7 @@
                 tools:layout_editor_absoluteY="8dp">
 
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/nombre1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -41,139 +41,84 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/poster"
-                android:layout_width="match_parent"
-                android:layout_height="379dp"
-                app:srcCompat="@mipmap/ic_launcher"
-                tools:layout_editor_absoluteX="143dp"
-                tools:layout_editor_absoluteY="160dp" />
-
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                tools:layout_editor_absoluteX="95dp"
-                tools:layout_editor_absoluteY="439dp">
+                android:layout_height="379dp">
 
-                <TextView
-                    android:id="@+id/rate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginTop="8dp"
-                    android:textSize="70dp"
-                    android:textStyle="bold"
-                    android:text="10"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:textStyle="bold"
-                    android:text="Sinopsis"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/sinopsis"
-                    android:layout_width="277dp"
-                    android:layout_height="105dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
-                    android:singleLine="false"
-                    android:text="The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe."
-                    android:textAlignment="viewStart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/rate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
-            </android.support.constraint.ConstraintLayout>
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                tools:layout_editor_absoluteX="95dp"
-                tools:layout_editor_absoluteY="439dp">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Actores"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/actors"
-                    android:layout_width="359dp"
-                    android:layout_height="100dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:singleLine="false"
-                    android:text="TextView"
+                <ImageView
+                    android:id="@+id/imagesource1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/ic_launcher" />
             </android.support.constraint.ConstraintLayout>
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="125dp"
                 tools:layout_editor_absoluteX="95dp"
                 tools:layout_editor_absoluteY="439dp">
+
+                <TextView
+                    android:id="@+id/calle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="direccion"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
+                    android:text="nit"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:text="Director"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/calle1" />
 
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="propietario"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:text="Year"
                     app:layout_constraintEnd_toStartOf="@+id/textView12"
+                    app:layout_constraintHorizontal_bias="0.482"
                     app:layout_constraintStart_toEndOf="@+id/textView10"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/calle1" />
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="telefono"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:text="Rated"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/calle1" />
 
                 <TextView
-                    android:id="@+id/director"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/nit1"
+                    android:layout_width="114dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
@@ -182,56 +127,55 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <TextView
-                    android:id="@+id/year"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/propietario1"
+                    android:layout_width="114dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="TextView"
-                    app:layout_constraintEnd_toStartOf="@+id/rated"
-                    app:layout_constraintStart_toEndOf="@+id/director"
+                    app:layout_constraintEnd_toStartOf="@+id/telefono1"
+                    app:layout_constraintStart_toEndOf="@+id/nit1"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
                 <TextView
-                    android:id="@+id/rated"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/telefono1"
+                    android:layout_width="114dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
             </android.support.constraint.ConstraintLayout>
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="100dp"
                 tools:layout_editor_absoluteX="95dp"
                 tools:layout_editor_absoluteY="439dp">
 
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="211dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Escritores"
-                    android:textAlignment="center"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                <Button
+                    android:id="@+id/id_eliminar"
+                    android:layout_width="95dp"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Delete"
+                    android:textSize="15dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ListView
-                    android:id="@+id/listw"
-                    android:layout_width="368dp"
-                    android:layout_height="452dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                <Button
+                    android:id="@+id/id_actualizar"
+                    android:layout_width="95dp"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Update"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

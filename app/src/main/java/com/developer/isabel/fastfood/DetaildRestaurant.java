@@ -1,13 +1,111 @@
 package com.developer.isabel.fastfood;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+import com.developer.isabel.fastfood.DetallesRestaurante.ItemR;
+import com.developer.isabel.fastfood.DetallesRestaurante.ListAdapterR;
+import com.developer.isabel.fastfood.DetallesRestaurante.OnLoadImgServiceR;
+import com.developer.isabel.fastfood.DetallesRestaurante.ServiceImgR;
+import com.developer.isabel.fastfood.utils.Data;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class DetaildRestaurant extends AppCompatActivity {
-
+   public String idRes;
+   protected TextView title1,nit1,property1,street1, phone1;
+   //private ArrayList<ItemR> RESTAU;
+   protected ImageView picture;
+   protected  DetaildRestaurant root;
+   protected com.developer.isabel.fastfood.DetallesRestaurante.ItemR DATA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        root=this;
+        idRes =this.getIntent().getExtras().getString("id");
+        //RESTAU=new ArrayList<ItemR>();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaild_restaurant);
+        loadAsyncData();
+        loadServiceHouse1();
+
     }
+
+
+
+    private void loadServiceHouse1() {
+        AsyncHttpClient client = new AsyncHttpClient();
+        //client.get("http://192.168.43.197:7070/", new JsonHttpResponseHandler(){
+        client.get(Data.GET_RESTAURANT +this.idRes, new JsonHttpResponseHandler(){
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    String title=response.getString("NombreRest");
+                    String street=response.getString("CalleRest");
+                    String phone=response.getString("TelefonoRest");
+                    String nit=response.getString("NitRest");
+                    String property=response.getString("PropietarioRest");
+                    JSONArray listGallery = response.getJSONArray("GaleriaRest");
+                    ArrayList<String> urllist =  new ArrayList<String>();
+                    for (int j = 0; j < listGallery.length(); j ++) {
+                        urllist.add(Data.HOST+listGallery.getString(j));
+                    }
+                    String latitude=response.getString("LatRest");
+                    String longitude=response.getString("LonRest");
+
+                    DATA=new ItemR(title, street, phone, nit, property,urllist, latitude, longitude);
+
+
+                    root.LoadComponents1();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            
+        });
+    }
+
+    private void LoadComponents1() {
+        this.title1.setText(DATA.getTitle1());
+        this.nit1.setText(DATA.getNit1());
+        this.property1.setText(DATA.getProperty1());
+        this.street1.setText(DATA.getStreet1());
+        this.phone1.setText(DATA.getPhone1());
+
+        ServiceImgR imgupload = new ServiceImgR();
+        imgupload.execute(DATA.getUrlimg().get(0));
+        imgupload.setLoadCompleteImg(this.picture, 0, new OnLoadImgServiceR() {
+            @Override
+            public void setLoadCompleteImgResult(ImageView img, int position, Bitmap imgsourceimg) {
+                img.setImageBitmap(imgsourceimg);
+            }
+        });
+
+
+    }
+    private void loadAsyncData() {
+        this.title1=this.findViewById(R.id.nombre1);
+         this.nit1=this.findViewById(R.id.nit1);
+        this.property1=this.findViewById(R.id.propietario1);
+        this.street1=this.findViewById(R.id.calle1);
+        this.phone1=this.findViewById(R.id.telefono1);
+        //this.gallery1=this.findViewById(R.id.imagesource1);
+        this.picture = this.findViewById(R.id.imagesource1);
+    }
+
 }
