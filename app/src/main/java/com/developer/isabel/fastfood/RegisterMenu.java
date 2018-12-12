@@ -22,14 +22,14 @@ import cz.msebera.android.httpclient.Header;
 public class RegisterMenu extends AppCompatActivity {
     public String idRest;
     private Button nextmenu;
-    protected DetaildRestaurant root;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
        // idRest =this.getIntent().getExtras().getString("id");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_menu);
-        //idRestaurante=BitmapStruct.ID;
+
         nextmenu=findViewById(R.id.nextM);
         nextmenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,14 +44,17 @@ public class RegisterMenu extends AppCompatActivity {
         TextView priceM=findViewById(R.id.priceM);
         TextView descriptionM=findViewById(R.id.descriptionM);
         idRest =this.getIntent().getExtras().getString("id");
-        //if(BitmapStruct.ID!=null){
-            //restaurante= BitmapStruct.ID;
+
             RequestParams params=new RequestParams();
-            params.add("name","producto1");
+            params.add("name",nameM.getText().toString());
+            params.add("description",descriptionM.getText().toString());
+            params.add("price",priceM.getText().toString());
+            params.add("restaurant",idRest);
+           /* params.add("name","producto1");
             params.add("price","10");
             params.add("description","todo lo q pueda comer de comer del producto1");
            // params.add("restaurant","5c1080b0061b6f26f4770756");
-            params.add("restaurant",idRest);
+            params.add("restaurant",idRest);*/
 
             AsyncHttpClient client=new AsyncHttpClient();
             client.post(Data.REGISTER_MENUS, params, new JsonHttpResponseHandler(){
@@ -72,5 +75,4 @@ public class RegisterMenu extends AppCompatActivity {
                 }
             });
         }
-    //}
 }

@@ -75,20 +75,20 @@ public class RegisterFastfood extends AppCompatActivity implements OnMapReadyCal
         //client.addHeader("authorization", Data.TOKEN);
 
         RequestParams params= new RequestParams();
-        params.add("name","nombre1");
+        /*params.add("name","nombre1");
         params.add("nit","nit1");
         params.add("property","prope1");
         params.add("phone","cel1");
         params.add("street","Pando");
         params.add("lat","-19.57773638");
-        params.add("log","-65.75444351");
+        params.add("log","-65.75444351");*/
 
         //params.add("lat",String.valueOf(""));
         //params.add("log",String.valueOf(""));
 
 
 
-        /*params.add("name",name.getText().toString());
+        params.add("name",name.getText().toString());
         params.add("nit",nit.getText().toString());
         params.add("property",property.getText().toString());
         params.add("phone",phone.getText().toString());
@@ -98,8 +98,6 @@ public class RegisterFastfood extends AppCompatActivity implements OnMapReadyCal
         //params.add("lat",String.valueOf(""));
         //params.add("log",String.valueOf(""));
 
-
-        */
 
         client.post(Data.REGISTER_RESTAURANT, params, new JsonHttpResponseHandler(){
             @Override

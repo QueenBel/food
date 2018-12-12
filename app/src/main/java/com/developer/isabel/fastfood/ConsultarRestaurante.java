@@ -65,17 +65,17 @@ public class ConsultarRestaurante extends AppCompatActivity {
         AsyncHttpClient client=new AsyncHttpClient();
 
         RequestParams params=new RequestParams();
-        /*params.put("NombreRest",nombre);
+        params.put("NombreRest",nombre);
         params.put("NitRest",nit);
         params.put("PropietarioRest",duenio);
         params.put("TelefonoRest",celular);
-        params.put("CalleRest",calles);*/
+        params.put("CalleRest",calles);
 
-        params.put("NombreRest","actualizado");
+        /*params.put("NombreRest","actualizado");
         params.put("NitRest","actualizado");
         params.put("PropietarioRest","actuizado");
         params.put("TelefonoRest","acrtualizado");
-        params.put("CalleRest","actualizado");
+        params.put("CalleRest","actualizado");*/
 
         client.patch(Data.UPDATE_RESTAURANT+"?id=" +this.idRe, params, new JsonHttpResponseHandler(){
             @Override

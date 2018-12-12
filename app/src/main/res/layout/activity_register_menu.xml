@@ -35,13 +35,13 @@
     <EditText
         android:id="@+id/descriptionM"
         android:layout_width="match_parent"
-        android:layout_height="212dp"
+        android:layout_height="105dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="decripsion del menu"
-        android:inputType="textPersonName"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceM" />
