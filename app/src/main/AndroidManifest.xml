@@ -50,7 +50,8 @@
         <activity android:name=".ViewRestaurant" />
         <activity android:name=".DetaildRestaurant" />
         <activity android:name=".RegisterMenu" />
-        <activity android:name=".PhotoMenu"></activity>
+        <activity android:name=".PhotoMenu" />
+        <activity android:name=".ConsultarRestaurante"></activity>
     </application>
 
 </manifest>

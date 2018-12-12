@@ -13,6 +13,8 @@ public class Data {
     public static String REGISTER_RESTAURANT= HOST + "/api/v1.0/restaurant";
     public static String UPLOAD_RESTAURANT= HOST + "/api/v1.0/uploadrestaurant";
     public static String GET_RESTAURANT= HOST + "/api/v1.0/restaurant/";
+    public static String UPDATE_RESTAURANT= HOST + "/api/v1.0/restaurant";
+    public static String DELETE_RESTAURANT= HOST + "/api/v1.0/restaurant";
 
     /*todo del menu */
     public static String REGISTER_MENUS= HOST + "/api/v1.0/menus";

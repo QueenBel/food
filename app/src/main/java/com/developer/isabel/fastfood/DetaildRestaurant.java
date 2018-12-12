@@ -54,6 +54,17 @@ public class DetaildRestaurant extends AppCompatActivity {
                 DetaildRestaurant.this.startActivity(registermenu);
             }
         });
+
+        DELETE=findViewById(R.id.id_eliminar);
+        UPDATE=findViewById(R.id.id_actualizar);
+        UPDATE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editrestaurante = new Intent(DetaildRestaurant.this, ConsultarRestaurante.class);
+                editrestaurante.putExtra("id",idRes);
+                DetaildRestaurant.this.startActivity(editrestaurante);
+            }
+        });
         loadAsyncData();
         loadServiceHouse1();
 
