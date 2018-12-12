@@ -26,7 +26,7 @@ import cz.msebera.android.httpclient.Header;
 public class ConsultarRestaurante extends AppCompatActivity {
     public String idRe;
     private EditText nombre1,nit1,property1,street1, phone1;
-    private Button DELETE, PATCH;
+    private Button PATCH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,52 +43,17 @@ public class ConsultarRestaurante extends AppCompatActivity {
         phone1=findViewById(R.id.editphone);
         street1=findViewById(R.id.editstreet);
         idRe =this.getIntent().getExtras().getString("id");
-
-        DELETE=findViewById(R.id.btnActualizar);
-        DELETE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                restActualizar();
-            }
-        });
-
-        PATCH=findViewById(R.id.btnEliminar);
+        PATCH=findViewById(R.id.btnActualizar);
         PATCH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                restEliminar();
+                UpdateRestaurant();
             }
         });
-    }
-
-    private void restEliminar() {
-        AsyncHttpClient client=new AsyncHttpClient();
-        if(idRe!=null){
-            client.delete(Data.DELETE_RESTAURANT+"?id="+this.idRe, new JsonHttpResponseHandler(){
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    try {
-                        String msn=response.getString("msn");
-                      //  String id=response.getString("id");
-                        //BitmapStruct.ID=id;
-                        if(msn!=null){
-                            Intent restaurante = new Intent(ConsultarRestaurante.this, ViewRestaurant.class);
-                            ConsultarRestaurante.this.startActivity(restaurante);
-                        }
-                    }catch (JSONException e){
-                        e.printStackTrace();
-                    }
-
-                    //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
-                }
-            });
-        }
-
 
     }
 
-
-    private void restActualizar() {
+    private void UpdateRestaurant() {
         String nombre=nombre1.getText().toString();
         String nit=nit1.getText().toString();
         String duenio=property1.getText().toString();
@@ -115,7 +80,7 @@ public class ConsultarRestaurante extends AppCompatActivity {
         client.patch(Data.UPDATE_RESTAURANT+"?id=" +this.idRe, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-               AlertDialog alertDialog= new AlertDialog.Builder(ConsultarRestaurante.this).create();
+                /*AlertDialog alertDialog= new AlertDialog.Builder(ConsultarRestaurante.this).create();
                 try {
                     String msn=response.getString("msn");
                     alertDialog.setTitle("ACTUALIZADO ");
@@ -124,12 +89,15 @@ public class ConsultarRestaurante extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
+
                         }
                     });
-                    alertDialog.show();
-                }catch (JSONException e){
+                    alertDialog.show();*/
+                    Intent restaurante = new Intent(ConsultarRestaurante.this, ViewRestaurant.class);
+                    ConsultarRestaurante.this.startActivity(restaurante);
+                /*}catch (JSONException e){
                     e.printStackTrace();
-                }
+                }*/
 
 
 
@@ -137,6 +105,6 @@ public class ConsultarRestaurante extends AppCompatActivity {
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
             }
         });
-
     }
+
 }

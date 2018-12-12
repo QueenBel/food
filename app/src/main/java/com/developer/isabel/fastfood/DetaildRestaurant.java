@@ -55,7 +55,6 @@ public class DetaildRestaurant extends AppCompatActivity {
             }
         });
 
-        DELETE=findViewById(R.id.id_eliminar);
         UPDATE=findViewById(R.id.id_actualizar);
         UPDATE.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +64,18 @@ public class DetaildRestaurant extends AppCompatActivity {
                 DetaildRestaurant.this.startActivity(editrestaurante);
             }
         });
-        loadAsyncData();
+
         loadServiceHouse1();
+        loadAsyncData();
+        DELETE=findViewById(R.id.id_eliminar);
+        DELETE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeleteRestaurant();
+            }
+        });
 
     }
-
 
 
     private void loadServiceHouse1() {
@@ -136,6 +142,30 @@ public class DetaildRestaurant extends AppCompatActivity {
         //this.gallery1=this.findViewById(R.id.imagesource1);
         this.picture = this.findViewById(R.id.imagesource1);
         //this.idrest1=this.findViewById(R.id.idRestorant);
+    }
+
+    private void DeleteRestaurant() {
+        AsyncHttpClient client=new AsyncHttpClient();
+        if(idRes!=null){
+            client.delete(Data.DELETE_RESTAURANT+"?id="+this.idRes, new JsonHttpResponseHandler(){
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    try {
+                        String msn=response.getString("msn");
+                        //  String id=response.getString("id");
+                        //BitmapStruct.ID=id;
+                        if(msn!=null){
+                            Intent restaurante = new Intent(DetaildRestaurant.this, ViewRestaurant.class);
+                            DetaildRestaurant.this.startActivity(restaurante);
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+
+                    //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
+                }
+            });
+        }
     }
 
 }
