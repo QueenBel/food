@@ -51,7 +51,8 @@
         <activity android:name=".DetaildRestaurant" />
         <activity android:name=".RegisterMenu" />
         <activity android:name=".PhotoMenu" />
-        <activity android:name=".ConsultarRestaurante"></activity>
+        <activity android:name=".ConsultarRestaurante" />
+        <activity android:name=".ActualizarRestaurante"></activity>
     </application>
 
 </manifest>

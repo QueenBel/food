@@ -10,39 +10,86 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.developer.isabel.fastfood.DetallesRestaurante.ItemR;
 import com.developer.isabel.fastfood.utils.BitmapStruct;
 import com.developer.isabel.fastfood.utils.Data;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
 public class ConsultarRestaurante extends AppCompatActivity {
     public String idRe;
-    private EditText nombre1,nit1,property1,street1, phone1;
+    private EditText editname;
+    private EditText editnit;
+    private EditText editproperty;
+    private EditText editstreet;
+    private EditText editphone;
     private Button PATCH;
-
+    protected  DetaildRestaurant root;
+    protected com.developer.isabel.fastfood.DetallesRestaurante.ItemR DATA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        idRe =this.getIntent().getExtras().getString("id");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_restaurante);
-        loadComponet();
+        loadServiceRest();
+        loadAsyncRES();
 
     }
+    private void loadServiceRest() {
+        AsyncHttpClient client = new AsyncHttpClient();
+        //client.get("http://192.168.43.197:7070/", new JsonHttpResponseHandler(){
+        client.get(Data.GET_RESTAURANT +this.idRe, new JsonHttpResponseHandler(){
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    String title=response.getString("NombreRest");
+                    String street=response.getString("CalleRest");
+                    String phone=response.getString("TelefonoRest");
+                    String nit=response.getString("NitRest");
+                    String property=response.getString("PropietarioRest");
+                    JSONArray listGallery = response.getJSONArray("GaleriaRest");
+                    ArrayList<String> urllist =  new ArrayList<String>();
+                    for (int j = 0; j < listGallery.length(); j ++) {
+                        urllist.add(Data.HOST+listGallery.getString(j));
+                    }
+                    String latitude=response.getString("LatRest");
+                    String longitude=response.getString("LonRest");
+                    String idrest= response.getString("_id");
 
-    private void loadComponet() {
-        nombre1=findViewById(R.id.editname);
-        nit1=findViewById(R.id.editnit);
-        property1=findViewById(R.id.editproperty);
-        phone1=findViewById(R.id.editphone);
-        street1=findViewById(R.id.editstreet);
-        idRe =this.getIntent().getExtras().getString("id");
+                    DATA=new ItemR(title, street, phone, nit, property,urllist, latitude, longitude, idrest);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                editname.setText(DATA.getTitle1());
+                editnit.setText(DATA.getNit1());
+                editproperty.setText(DATA.getProperty1());
+                editphone.setText(DATA.getPhone1());
+                editstreet.setText(DATA.getStreet1());
+
+            }
+
+        });
+    }
+
+    private void loadAsyncRES() {
+        editname=findViewById(R.id.editname);
+        editnit=findViewById(R.id.editnit);
+        editproperty=findViewById(R.id.editproperty);
+        editphone=findViewById(R.id.editphone);
+        editstreet=findViewById(R.id.editstreet);
+
         PATCH=findViewById(R.id.btnActualizar);
         PATCH.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,15 +97,15 @@ public class ConsultarRestaurante extends AppCompatActivity {
                 UpdateRestaurant();
             }
         });
-
     }
 
     private void UpdateRestaurant() {
-        String nombre=nombre1.getText().toString();
-        String nit=nit1.getText().toString();
-        String duenio=property1.getText().toString();
-        String celular=phone1.getText().toString();
-        String calles=street1.getText().toString();
+
+        String nombre=editname.getText().toString();
+        String nit=editnit.getText().toString();
+        String duenio=editproperty.getText().toString();
+        String celular=editphone.getText().toString();
+        String calles=editstreet.getText().toString();
 
         //idRe =this.getIntent().getExtras().getString("id");
 
