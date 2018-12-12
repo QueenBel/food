@@ -89,6 +89,10 @@ public class ViewRestaurant extends AppCompatActivity implements AdapterView.OnI
         Intent detailds= new Intent(this, DetaildRestaurant.class);
         detailds.putExtra("id", idRes);
         this.startActivity(detailds);
+
+      /*  Intent detailds= new Intent(this, RegisterMenu.class);
+        detailds.putExtra("id", idRes);
+        this.startActivity(detailds);*/
     }
 }
 //08:40:00 apirestMovie

@@ -1,9 +1,12 @@
 package com.developer.isabel.fastfood;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +30,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class DetaildRestaurant extends AppCompatActivity {
    public String idRes;
-   protected TextView title1,nit1,property1,street1, phone1;
+   private Button MENU,UPDATE, DELETE;
+   protected TextView title1,nit1,property1,street1, phone1, idrest1;
    //private ArrayList<ItemR> RESTAU;
    protected ImageView picture;
    protected  DetaildRestaurant root;
@@ -40,6 +44,16 @@ public class DetaildRestaurant extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaild_restaurant);
+        MENU=findViewById(R.id.menu_add);
+        MENU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent registermenu = new Intent(DetaildRestaurant.this, RegisterMenu.class);
+                registermenu.putExtra("id",idRes);
+                DetaildRestaurant.this.startActivity(registermenu);
+            }
+        });
         loadAsyncData();
         loadServiceHouse1();
 
@@ -65,8 +79,9 @@ public class DetaildRestaurant extends AppCompatActivity {
                     }
                     String latitude=response.getString("LatRest");
                     String longitude=response.getString("LonRest");
+                    String idrest= response.getString("_id");
 
-                    DATA=new ItemR(title, street, phone, nit, property,urllist, latitude, longitude);
+                    DATA=new ItemR(title, street, phone, nit, property,urllist, latitude, longitude, idrest);
 
 
                     root.LoadComponents1();
@@ -87,6 +102,7 @@ public class DetaildRestaurant extends AppCompatActivity {
         this.street1.setText(DATA.getStreet1());
         this.phone1.setText(DATA.getPhone1());
 
+
         ServiceImgR imgupload = new ServiceImgR();
         imgupload.execute(DATA.getUrlimg().get(0));
         imgupload.setLoadCompleteImg(this.picture, 0, new OnLoadImgServiceR() {
@@ -95,6 +111,8 @@ public class DetaildRestaurant extends AppCompatActivity {
                 img.setImageBitmap(imgsourceimg);
             }
         });
+
+        //this.idrest1.setText(DATA.getIdrest());
 
 
     }
@@ -106,6 +124,7 @@ public class DetaildRestaurant extends AppCompatActivity {
         this.phone1=this.findViewById(R.id.telefono1);
         //this.gallery1=this.findViewById(R.id.imagesource1);
         this.picture = this.findViewById(R.id.imagesource1);
+        //this.idrest1=this.findViewById(R.id.idRestorant);
     }
 
 }

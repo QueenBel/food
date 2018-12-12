@@ -80,10 +80,11 @@ public class RegisterFastfood extends AppCompatActivity implements OnMapReadyCal
         params.add("property","prope1");
         params.add("phone","cel1");
         params.add("street","Pando");
-        //params.add("log","-65.75444351");
-        //params.add("lat","-19.57773638");
-        params.add("lat",String.valueOf(""));
-        params.add("log",String.valueOf(""));
+        params.add("lat","-19.57773638");
+        params.add("log","-65.75444351");
+
+        //params.add("lat",String.valueOf(""));
+        //params.add("log",String.valueOf(""));
 
 
 

@@ -42,7 +42,7 @@ public class CameraPhoto extends AppCompatActivity {
     private ImageView IMG;
     private ImageButton btn;
    // private final int RESOLUCION_IMG=100;
-    private Button SEND;
+    private Button SEND, MENU;
     private BitmapStruct DATA_IMG;
     private Context root;
     @Override
@@ -53,10 +53,19 @@ public class CameraPhoto extends AppCompatActivity {
         SEND=findViewById(R.id.register);
         IMG=findViewById(R.id.image);
 
+        //MENU=findViewById(R.id.add_menu);
+
         btn.setVisibility(View.INVISIBLE);
         if(reviewPermissions()){
             btn.setVisibility(View.VISIBLE);
         }
+      /*  MENU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registermenu = new Intent(CameraPhoto.this, RegisterMenu.class);
+                CameraPhoto.this.startActivity(registermenu);
+            }
+        });*/
 
         SEND.setOnClickListener(new View.OnClickListener() {
             @Override

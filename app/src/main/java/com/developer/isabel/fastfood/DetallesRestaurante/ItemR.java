@@ -14,7 +14,8 @@ public class ItemR {
     private ArrayList<String>url;
     private String latitude;
     private  String longitude;
-    public ItemR(String title1, String street1, String phone1, String nit1, String property1, ArrayList<String>urlimg, String latitude, String longitude){
+    private String idrest;
+    public ItemR(String title1, String street1, String phone1, String nit1, String property1, ArrayList<String>urlimg, String latitude, String longitude, String idrest){
         this.title1=title1;
         this.street1=street1;
         this.phone1=phone1;
@@ -23,6 +24,7 @@ public class ItemR {
         this.url=urlimg;
         this.latitude=latitude;
         this.longitude=longitude;
+        this.idrest=idrest;
     }
 
     public String getTitle1() {
@@ -94,5 +96,13 @@ public class ItemR {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getIdrest() {
+        return this.idrest;
+    }
+
+    public void setIdrest(String idrest) {
+        this.idrest = idrest;
     }
 }
