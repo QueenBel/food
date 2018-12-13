@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity
             MainActivity.this.startActivity(ViewMenu);
 
         } else if (id == R.id.nav_manage) {
+            Intent login= new Intent(MainActivity.this, Login.class);
+            MainActivity.this.startActivity(login);
 
         } else if (id == R.id.nav_share) {
 
