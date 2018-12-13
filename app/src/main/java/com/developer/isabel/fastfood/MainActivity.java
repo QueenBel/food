@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity
             MainActivity.this.startActivity(ViewResta);
 
         } else if (id == R.id.nav_slideshow) {
+            Intent ViewMenu= new Intent(MainActivity.this, ViewMenus.class);
+            MainActivity.this.startActivity(ViewMenu);
 
         } else if (id == R.id.nav_manage) {
 

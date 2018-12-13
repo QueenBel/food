@@ -1,6 +1,7 @@
 package com.developer.isabel.fastfood.utils;
 
 import com.developer.isabel.fastfood.Collection.Item;
+import com.developer.isabel.fastfood.CollectionMenu.ItemMenu;
 
 import java.util.ArrayList;
 
@@ -17,5 +18,10 @@ public class Data {
     public static String DELETE_RESTAURANT= HOST + "/api/v1.0/restaurant";
 
     /*todo del menu */
+    public static  ArrayList<ItemMenu>LIST_MENU;
     public static String REGISTER_MENUS= HOST + "/api/v1.0/menus";
+    public static String UPLOAD_MENUS= HOST + "/api/v1.0/uploadmenus";
+    public static String GET_MENUS= HOST + "/api/v1.0/menus/";
+    public static String UPDATE_MENUS= HOST + "/api/v1.0/menus";
+    public static String DELETE_MENUS= HOST + "/api/v1.0/menus";
 }

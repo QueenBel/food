@@ -52,7 +52,9 @@
         <activity android:name=".RegisterMenu" />
         <activity android:name=".PhotoMenu" />
         <activity android:name=".ConsultarRestaurante" />
-        <activity android:name=".ActualizarRestaurante"></activity>
+        <activity android:name=".ActualizarRestaurante" />
+        <activity android:name=".ViewMenus" />
+        <activity android:name=".DetaildMenus"></activity>
     </application>
 
 </manifest>

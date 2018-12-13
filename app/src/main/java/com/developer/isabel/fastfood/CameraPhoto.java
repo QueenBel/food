@@ -42,7 +42,7 @@ public class CameraPhoto extends AppCompatActivity {
     private ImageView IMG;
     private ImageButton btn;
    // private final int RESOLUCION_IMG=100;
-    private Button SEND, MENU;
+    private Button SEND;
     private BitmapStruct DATA_IMG;
     private Context root;
     @Override
