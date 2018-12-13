@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class Login extends AppCompatActivity {
-    private static Context RC=null;
+    private static  Context registe_cliente=null;
     private Button login;
     private Button registerNewClient;
 
@@ -65,8 +65,8 @@ public class Login extends AppCompatActivity {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Intent principal=new Intent(RC,MainActivity.class);
-                            startActivity(principal);
+                            Intent principal=new Intent(Login.this,MainActivity.class);
+                            Login.this.startActivity(principal);
                             dialog.dismiss();
                         }
                     });

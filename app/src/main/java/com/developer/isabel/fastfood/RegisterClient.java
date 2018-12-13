@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.developer.isabel.fastfood.utils.BitmapStructMenu;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestHandle;
@@ -23,7 +24,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class RegisterClient extends AppCompatActivity {
     private Button register;
-    private static  Context RC=null;
+    private static  Context registe_cliente=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,48 +70,23 @@ public class RegisterClient extends AppCompatActivity {
             params.add("email",email.getText().toString());
             params.add("phone",phone.getText().toString());
             params.add("password",password.getText().toString());
-            final String emailuser=email.getText().toString();
-            final String passworduser=password.getText().toString();
-            RC=getApplicationContext();
-            client.post(Data.REGISTER_CLIENT, params, new JsonHttpResponseHandler(){
 
+            //registe_cliente=getApplicationContext();
+            client.post(Data.REGISTER_CLIENT, params, new JsonHttpResponseHandler(){
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
-                    if(response.has("_id")){
-                        AsyncHttpClient client= new AsyncHttpClient();
-                        RequestParams params=new RequestParams();
-                        params.add("email",emailuser);
-                        params.add("password",passworduser);
-
-                        client.post(Data.LOGIN,params,new JsonHttpResponseHandler(){
-                            @Override
-                            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
-                                try{
-                                    String token=response.getString("token");
-                                    Data.TOKEN="data "+token;
-                                    AlertDialog alertDialog = new AlertDialog.Builder(RegisterClient.this).create();
-                                    alertDialog.setTitle("SERVER RESPONSE");
-                                    alertDialog.setMessage("BIEN..!!!");
-                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"OK",new DialogInterface.OnClickListener(){
-
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent principal=new Intent(RC,MainActivity.class);
-                                            startActivity(principal);
-                                            dialog.dismiss();
-                                        }
-                                    });
-                                    alertDialog.show();
-                                }catch(Exception e){
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-
+                    try {
+                        String msn=response.getString("msn");
+                        String id=response.getString("id");
+                        //BitmapStructMenu.ID_M=id;
+                        if(msn!=null){
+                            Intent principal = new Intent(RegisterClient.this, MainActivity.class);
+                            RegisterClient.this.startActivity(principal);
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
                     }
+
                 }
             });
         }

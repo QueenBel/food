@@ -99,7 +99,7 @@ public class DetaildMenus extends AppCompatActivity {
         this.pricem1.setText(DATAM.getPricemenu());
         this.codigom1.setText(DATAM.getCodigomenu());
         this.descriptionm1.setText(DATAM.getDescriptionmenu());
-        this.restaruantem1.setText(DATAM.getRestaurantemenu());
+        //this.restaruantem1.setText(DATAM.getRestaurantemenu());
 
         ServiceImgMenu imgUpload=new ServiceImgMenu();
         imgUpload.execute(DATAM.getUrlmenu());
@@ -117,7 +117,7 @@ public class DetaildMenus extends AppCompatActivity {
         this.pricem1=this.findViewById(R.id.preciomenu);
         this.codigom1=this.findViewById(R.id.codigomenu);
         this.descriptionm1=this.findViewById(R.id.descripcionmenu);
-        this.restaruantem1=this.findViewById(R.id.restaurantemenu);
+       // this.restaruantem1=this.findViewById(R.id.restaurantemenu);
         this.picturem = this.findViewById(R.id.imagenmenu);
     }
 
