@@ -14,10 +14,7 @@ import android.widget.Toast;
 
 import com.developer.isabel.fastfood.Collection.OnLoadImgService;
 import com.developer.isabel.fastfood.Collection.ServiceImg;
-import com.developer.isabel.fastfood.DetallesRestaurante.ItemR;
-import com.developer.isabel.fastfood.DetallesRestaurante.ListAdapterR;
-import com.developer.isabel.fastfood.DetallesRestaurante.OnLoadImgServiceR;
-import com.developer.isabel.fastfood.DetallesRestaurante.ServiceImgR;
+import com.developer.isabel.fastfood.DetallesRestaurante.ItemR;;
 import com.developer.isabel.fastfood.utils.Data;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;

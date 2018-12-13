@@ -58,11 +58,7 @@ public class ConsultarRestaurante extends AppCompatActivity {
                     String phone=response.getString("TelefonoRest");
                     String nit=response.getString("NitRest");
                     String property=response.getString("PropietarioRest");
-                    JSONArray listGallery = response.getJSONArray("GaleriaRest");
-                    ArrayList<String> urllist =  new ArrayList<String>();
-                    for (int j = 0; j < listGallery.length(); j ++) {
-                        urllist.add(Data.HOST+listGallery.getString(j));
-                    }
+                    String urllist=response.getString("LogoRest");
                     String latitude=response.getString("LatRest");
                     String longitude=response.getString("LonRest");
                     String idrest= response.getString("_id");
