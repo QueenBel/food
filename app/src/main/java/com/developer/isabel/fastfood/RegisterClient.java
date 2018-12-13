@@ -83,7 +83,7 @@ public class RegisterClient extends AppCompatActivity {
                         params.add("email",emailuser);
                         params.add("password",passworduser);
 
-                        client.post(Data.HOST+Data.LOGIN,params,new JsonHttpResponseHandler(){
+                        client.post(Data.LOGIN,params,new JsonHttpResponseHandler(){
                             @Override
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
@@ -94,13 +94,6 @@ public class RegisterClient extends AppCompatActivity {
                                     alertDialog.setTitle("SERVER RESPONSE");
                                     alertDialog.setMessage("BIEN..!!!");
                                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"OK",new DialogInterface.OnClickListener(){
-
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.dismiss();
-                                        }
-                                    });
-                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"quiere registrar los restaurantes?",new DialogInterface.OnClickListener(){
 
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
@@ -116,9 +109,6 @@ public class RegisterClient extends AppCompatActivity {
 
                             }
                         });
-
-                    }
-                    else{
 
                     }
                 }

@@ -106,6 +106,7 @@ public class ConsultarRestaurante extends AppCompatActivity {
         //idRe =this.getIntent().getExtras().getString("id");
 
         AsyncHttpClient client=new AsyncHttpClient();
+        client.addHeader("authorization", Data.TOKEN);
 
         RequestParams params=new RequestParams();
         params.put("NombreRest",nombre);

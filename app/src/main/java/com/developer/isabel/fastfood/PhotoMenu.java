@@ -59,6 +59,7 @@ public class PhotoMenu extends AppCompatActivity {
             public void onClick(View v) {
                 if(DATA_IMG_M!=null){
                     AsyncHttpClient client=new AsyncHttpClient();
+                    client.addHeader("authorization", Data.TOKEN);
                     File img=new File(DATA_IMG_M.path);
                     RequestParams params = new RequestParams();
                     try {

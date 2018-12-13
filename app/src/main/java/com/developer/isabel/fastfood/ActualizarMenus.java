@@ -36,7 +36,9 @@ public class ActualizarMenus extends AppCompatActivity {
         loadAsyncMenu();
     }
     private void loadServiceMenu() {
+
         AsyncHttpClient client = new AsyncHttpClient();
+        client.addHeader("authorization", Data.TOKEN);
         //client.get("http://192.168.43.197:7070/", new JsonHttpResponseHandler(){
         client.get(Data.GET_MENUS +this.idMe, new JsonHttpResponseHandler(){
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

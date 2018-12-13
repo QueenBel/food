@@ -72,6 +72,7 @@ public class RegisterFastfood extends AppCompatActivity implements OnMapReadyCal
         TextView phone=findViewById(R.id.phone);
         TextView street=findViewById(R.id.street);
         AsyncHttpClient client=new AsyncHttpClient();
+        client.addHeader("authorization", Data.TOKEN);
         //client.addHeader("authorization", Data.TOKEN);
 
         RequestParams params= new RequestParams();
