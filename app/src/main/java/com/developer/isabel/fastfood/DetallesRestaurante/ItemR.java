@@ -10,18 +10,17 @@ public class ItemR {
     private String phone1;
     private String nit1;
     private String property1;
-    private ArrayList<Bitmap>img;
-    private ArrayList<String>url;
+    private String url;;
     private String latitude;
     private  String longitude;
     private String idrest;
-    public ItemR(String title1, String street1, String phone1, String nit1, String property1, ArrayList<String>urlimg, String latitude, String longitude, String idrest){
+    public ItemR(String title1, String street1, String phone1, String nit1, String property1, String url, String latitude, String longitude, String idrest){
         this.title1=title1;
         this.street1=street1;
         this.phone1=phone1;
         this.nit1=nit1;
         this.property1=property1;
-        this.url=urlimg;
+        this.url=url;
         this.latitude=latitude;
         this.longitude=longitude;
         this.idrest=idrest;
@@ -67,7 +66,7 @@ public class ItemR {
         this.property1 = property1;
     }
 
-    public void setImg(ArrayList<Bitmap> img) {
+   /* public void setImg(ArrayList<Bitmap> img) {
         this.img = img;
     }
     public ArrayList<Bitmap> getImg() {
@@ -79,8 +78,15 @@ public class ItemR {
     public ArrayList<Bitmap> getBitmap() {
         return this.img;
     }
-    /********/
+    */
 
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getLatitude() {
         return this.latitude;

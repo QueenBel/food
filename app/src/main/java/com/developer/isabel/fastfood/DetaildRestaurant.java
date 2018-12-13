@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.developer.isabel.fastfood.Collection.OnLoadImgService;
+import com.developer.isabel.fastfood.Collection.ServiceImg;
 import com.developer.isabel.fastfood.DetallesRestaurante.ItemR;
 import com.developer.isabel.fastfood.DetallesRestaurante.ListAdapterR;
 import com.developer.isabel.fastfood.DetallesRestaurante.OnLoadImgServiceR;
@@ -89,11 +91,7 @@ public class DetaildRestaurant extends AppCompatActivity {
                     String phone=response.getString("TelefonoRest");
                     String nit=response.getString("NitRest");
                     String property=response.getString("PropietarioRest");
-                    JSONArray listGallery = response.getJSONArray("GaleriaRest");
-                    ArrayList<String> urllist =  new ArrayList<String>();
-                    for (int j = 0; j < listGallery.length(); j ++) {
-                        urllist.add(Data.HOST+listGallery.getString(j));
-                    }
+                    String urllist=response.getString("LogoRest");
                     String latitude=response.getString("LatRest");
                     String longitude=response.getString("LonRest");
                     String idrest= response.getString("_id");
@@ -108,7 +106,7 @@ public class DetaildRestaurant extends AppCompatActivity {
                 }
 
             }
-            
+
         });
     }
 
@@ -119,17 +117,16 @@ public class DetaildRestaurant extends AppCompatActivity {
         this.street1.setText(DATA.getStreet1());
         this.phone1.setText(DATA.getPhone1());
 
-
-        ServiceImgR imgupload = new ServiceImgR();
-        imgupload.execute(DATA.getUrlimg().get(0));
-        imgupload.setLoadCompleteImg(this.picture, 0, new OnLoadImgServiceR() {
+        ServiceImg imgupload= new ServiceImg();
+        imgupload.execute(DATA.getUrl());
+        imgupload.setLoadImage(this.picture, new OnLoadImgService() {
             @Override
-            public void setLoadCompleteImgResult(ImageView img, int position, Bitmap imgsourceimg) {
-                img.setImageBitmap(imgsourceimg);
+            public void setLoadImg(ImageView container, Bitmap img) {
+                container.setImageBitmap(img);
             }
         });
 
-        //this.idrest1.setText(DATA.getIdrest());
+
 
 
     }
