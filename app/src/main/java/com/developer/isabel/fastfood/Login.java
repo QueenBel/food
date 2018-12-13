@@ -51,7 +51,7 @@ public class Login extends AppCompatActivity {
         params.add("email",email.getText().toString());
         params.add("password",password.getText().toString());
 
-        client.post(Data.HOST+Data.LOGIN,params,new JsonHttpResponseHandler(){
+        client.post(Data.LOGIN,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();

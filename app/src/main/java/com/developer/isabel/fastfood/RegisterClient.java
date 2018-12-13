@@ -72,7 +72,7 @@ public class RegisterClient extends AppCompatActivity {
             final String emailuser=email.getText().toString();
             final String passworduser=password.getText().toString();
             RC=getApplicationContext();
-            client.post(Data.HOST + Data.REGISTER_CLIENT, params, new JsonHttpResponseHandler(){
+            client.post(Data.REGISTER_CLIENT, params, new JsonHttpResponseHandler(){
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

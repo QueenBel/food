@@ -13,7 +13,7 @@ public class Data {
     //public static String HOST= "http://192.168.1.110:7070";
     public static String HOST= "http://192.168.43.197:7070";
     public static String REGISTER_CLIENT=HOST+ "/api/v1.0/client";
-    public static String LOGIN= HOST+ "/api/v1.0/clients/login";
+    public static String LOGIN= HOST+ "/api/v1.0/login";
 
     public static String REGISTER_RESTAURANT= HOST + "/api/v1.0/restaurant";
     public static String UPLOAD_RESTAURANT= HOST + "/api/v1.0/uploadrestaurant";
