@@ -1,6 +1,7 @@
 package com.developer.isabel.fastfood;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -73,6 +74,11 @@ public class ViewMenus extends AppCompatActivity implements AdapterView.OnItemCl
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String idMen=Data.LIST_MENU.get(position).getId();
+
+        Intent detailds= new Intent(this, DetaildMenus.class);
+        detailds.putExtra("id", idMen);
+        this.startActivity(detailds);
 
     }
 }

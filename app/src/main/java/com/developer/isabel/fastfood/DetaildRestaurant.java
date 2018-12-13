@@ -65,7 +65,7 @@ public class DetaildRestaurant extends AppCompatActivity {
             }
         });
 
-        loadServiceHouse1();
+        loadServiceRest1();
         loadAsyncData();
         DELETE=findViewById(R.id.id_eliminar);
         DELETE.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +78,7 @@ public class DetaildRestaurant extends AppCompatActivity {
     }
 
 
-    private void loadServiceHouse1() {
+    private void loadServiceRest1() {
         AsyncHttpClient client = new AsyncHttpClient();
         //client.get("http://192.168.43.197:7070/", new JsonHttpResponseHandler(){
         client.get(Data.GET_RESTAURANT +this.idRes, new JsonHttpResponseHandler(){

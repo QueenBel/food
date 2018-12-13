@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="8dp"
                     android:text="menuss"
                     android:textColor="@android:color/holo_blue_dark"
@@ -129,6 +129,31 @@
                     android:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="101dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="82dp"
+                    android:text="restaurante"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/textView12"
+                    app:layout_constraintStart_toEndOf="@+id/textView10"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/restaurantemenu"
+                    android:layout_width="112dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="98dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="72dp"
+                    android:text="TextView"
+                    app:layout_constraintEnd_toStartOf="@+id/codigomenu"
+                    app:layout_constraintStart_toEndOf="@+id/preciomenu"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
             </android.support.constraint.ConstraintLayout>
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
