@@ -55,7 +55,8 @@
         <activity android:name=".ActualizarMenus" />
         <activity android:name=".ViewMenus" />
         <activity android:name=".DetaildMenus" />
-        <activity android:name=".RegisterClient"></activity>
+        <activity android:name=".RegisterClient" />
+        <activity android:name=".Login"></activity>
     </application>
 
 </manifest>
