@@ -1,8 +1,10 @@
 package com.developer.isabel.fastfood;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,9 +35,37 @@ public class DetaildMenus extends AppCompatActivity {
         idMenu =this.getIntent().getExtras().getString("id");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaild_menus);
+        ATRAS=findViewById(R.id.atras);
+        ATRAS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewmenu = new Intent(DetaildMenus.this, ViewMenus.class);
+
+                DetaildMenus.this.startActivity(viewmenu);
+            }
+        });
+        UPDATE=findViewById(R.id.id_actualizarmenu);
+        UPDATE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent menu = new Intent(DetaildMenus.this, ActualizarMenus.class);
+                menu.putExtra("id",idMenu);
+                DetaildMenus.this.startActivity(menu);
+            }
+        });
         loadServiceMen1();
         loadAsyncDataM();
+        DELETE=findViewById(R.id.id_eliminarmenu);
+        DELETE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeleteMenus();
+            }
+        });
     }
+
+
+
     private void loadServiceMen1() {
         AsyncHttpClient client = new AsyncHttpClient();
         //client.get("http://192.168.43.197:7070/", new JsonHttpResponseHandler(){
@@ -91,5 +121,28 @@ public class DetaildMenus extends AppCompatActivity {
         this.picturem = this.findViewById(R.id.imagenmenu);
     }
 
+    private void DeleteMenus() {
+        AsyncHttpClient client=new AsyncHttpClient();
+        if(idMenu!=null){
+            client.delete(Data.DELETE_MENUS+"?id="+this.idMenu, new JsonHttpResponseHandler(){
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    try {
+                        String msn=response.getString("msn");
+                        //  String id=response.getString("id");
+                        //BitmapStruct.ID=id;
+                        if(msn!=null){
+                            Intent menu = new Intent(DetaildMenus.this, ViewMenus.class);
+                            DetaildMenus.this.startActivity(menu);
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+
+                    //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
+                }
+            });
+        }
+    }
 
 }
