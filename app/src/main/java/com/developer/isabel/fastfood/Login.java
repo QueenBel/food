@@ -1,5 +1,6 @@
 package com.developer.isabel.fastfood;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +20,7 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class Login extends AppCompatActivity {
+    private static Context RC=null;
     private Button login;
     private Button registerNewClient;
 
@@ -63,6 +65,8 @@ public class Login extends AppCompatActivity {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Intent principal=new Intent(RC,MainActivity.class);
+                            startActivity(principal);
                             dialog.dismiss();
                         }
                     });

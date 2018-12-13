@@ -97,8 +97,8 @@ public class RegisterClient extends AppCompatActivity {
 
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            Intent rrestaurant=new Intent(RC,RegisterFastfood.class);
-                                            startActivity(rrestaurant);
+                                            Intent principal=new Intent(RC,MainActivity.class);
+                                            startActivity(principal);
                                             dialog.dismiss();
                                         }
                                     });
